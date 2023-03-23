@@ -27,4 +27,15 @@ describe ('Basket.', () => {
 
         expect(basket1.getTotalPrice()).toEqual (12.97);
     });
+
+    it('It adds two items and returns the discounted basket value.', () => {
+        const basket1 = new ShoppingBasket();
+        const candy1double = { getPrice: () => ('Mars', 4)}
+        basket1.addItem(candy1double);
+
+        const candy2double = { getPrice: () => ('Twix', 3)}
+        basket1.addItem(candy2double);
+        basket1.applyDiscount(2)
+        expect(basket1.getTotalPrice()).toEqual (5);
+    });
 });
